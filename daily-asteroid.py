@@ -8,9 +8,9 @@ request = requests.get(f'https://api.nasa.gov/neo/rest/v1/feed?start_date={today
 request.raise_for_status()
 data = request.json()
 
-print(f"Number of Near Earth Objects for Today: {len(data['near_earth_objects']['2022-07-29'])}\n")
+print(f"Number of Near Earth Objects for Today: {len(data['near_earth_objects'][f'{today}'])}\n")
 
-for object in data["near_earth_objects"]["2022-07-29"]:
+for object in data["near_earth_objects"][f"{today}"]:
 
     name = object['name']
     is_dangerous = object['is_potentially_hazardous_asteroid']
